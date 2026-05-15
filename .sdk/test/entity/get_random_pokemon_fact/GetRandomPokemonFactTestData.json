@@ -1,0 +1,22 @@
+{
+  "existing": {
+    "get_random_pokemon_fact": {
+      "GET_RANDOM_POKEMON_FACT00": {
+        "data": []
+      },
+      "GET_RANDOM_POKEMON_FACT01": {
+        "data": []
+      },
+      "GET_RANDOM_POKEMON_FACT02": {
+        "data": []
+      }
+    }
+  },
+  "new": {
+    "get_random_pokemon_fact": {
+      "get_random_pokemon_fact_ref01": {
+        "data": []
+      }
+    }
+  }
+}

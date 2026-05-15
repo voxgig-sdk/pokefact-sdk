@@ -1,0 +1,86 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Pokefact API",
+    "description": "API chooses a random Pokemon fact and displays it to the user.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://pokefacts.vercel.app"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://pokefacts.vercel.app",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Get random Pokemon fact",
+        "description": "Retrieves a random Pokemon fact from the database",
+        "operationId": "getRandomPokemonFact",
+        "responses": {
+          "200": {
+            "description": "Successful response with a random Pokemon fact",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "description": "Array containing Pokemon facts",
+                      "items": {
+                        "type": "string",
+                        "description": "A random Pokemon fact"
+                      }
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "eternatus": {
+                    "summary": "Example Pokemon fact",
+                    "value": {
+                      "data": [
+                        "Eternamax Eternatus: Is tied with Blissey for the highest base HP stat of all Pokémon. Has the highest base Defense and Special Defense stats of all Pokémon. A level 100 Eternamax Eternatus could reach 655 in one of these stats, which would cause the stat to overflow to 0, due to a quirk in the coding for Pokémon Sword and Shield which affects no other Pokémon. Has the highest base stat total of all Pokémon, with 1125. This also makes it the only Pokémon with a four-digit base stat total. Is the only alternate form of a Legendary Pokémon that cannot be legitimately used by the player."
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Facts"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Facts",
+      "description": "Operations related to Pokemon facts"
+    }
+  ]
+}

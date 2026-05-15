@@ -1,0 +1,22 @@
+# BasicGetRandomPokemonFactFlow
+
+main: kit: flow: BasicGetRandomPokemonFactFlow:
+{
+  entity: "get_random_pokemon_fact",
+  kind: "basic",
+  name: "BasicGetRandomPokemonFactFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "get_random_pokemon_fact_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGetRandomPokemonFactFlow"
+}

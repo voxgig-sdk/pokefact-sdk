@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://pokefacts.vercel.app"
+      }
+      description: "API chooses a random Pokemon fact and displays it to the user."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://pokefacts.vercel.app"
+        }
+      ]
+      title: "Pokefact API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}
