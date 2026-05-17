@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/pokefact-sdk"
-	"github.com/voxgig-sdk/pokefact-sdk/core"
+	sdk "github.com/voxgig-sdk/pokefact-sdk/go"
+	"github.com/voxgig-sdk/pokefact-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/pokefact-sdk/go/utility/struct"
 )
 
 func TestGetRandomPokemonFactEntity(t *testing.T) {

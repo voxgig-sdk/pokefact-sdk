@@ -1,10 +1,10 @@
 package voxgigpokefactsdk
 
 import (
-	"github.com/voxgig-sdk/pokefact-sdk/core"
-	"github.com/voxgig-sdk/pokefact-sdk/entity"
-	"github.com/voxgig-sdk/pokefact-sdk/feature"
-	_ "github.com/voxgig-sdk/pokefact-sdk/utility"
+	"github.com/voxgig-sdk/pokefact-sdk/go/core"
+	"github.com/voxgig-sdk/pokefact-sdk/go/entity"
+	"github.com/voxgig-sdk/pokefact-sdk/go/feature"
+	_ "github.com/voxgig-sdk/pokefact-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

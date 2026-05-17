@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/pokefact-sdk"
-	"github.com/voxgig-sdk/pokefact-sdk/core"
+	sdk "github.com/voxgig-sdk/pokefact-sdk/go"
+	"github.com/voxgig-sdk/pokefact-sdk/go/core"
 )
 
 func TestGetRandomPokemonFactDirect(t *testing.T) {
