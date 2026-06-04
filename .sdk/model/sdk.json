@@ -16,7 +16,14 @@
           }
         ],
         "title": "Pokefact API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Fetch a random Pokemon fact with a single GET request, no auth required",
+        "homepage": "https://pokefacts.vercel.app",
+        "about_md": "The Pokefact API is a small free service that returns a random Pokemon fact on each request. It is hosted on Vercel at `https://pokefacts.vercel.app` and is listed in the [Free Public APIs](https://freepublicapis.com/pokefact) community catalogue.\n\nWhat you get from the API:\n- A random Pokemon fact returned on each call to the root endpoint.\n- No API key, account, or authentication required.\n- CORS is enabled, so the endpoint can be called directly from browser-based applications.\n\nThe service is intentionally minimal: there is a single endpoint that picks a fact and returns it. No filtering, pagination, or query parameters are documented.",
+        "entity_desc": {
+          "get_random_pokemon_fact": "Returns one randomly selected Pokemon fact from the service's pool, served from the root path `/`."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -24,7 +31,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "get_random_pokemon_fact": {

@@ -92,7 +92,6 @@ def _get_random_pokemon_fact_basic_setup(extra):
         "POKEFACT_TEST_GET_RANDOM_POKEMON_FACT_ENTID": idmap,
         "POKEFACT_TEST_LIVE": "FALSE",
         "POKEFACT_TEST_EXPLAIN": "FALSE",
-        "POKEFACT_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ def _get_random_pokemon_fact_basic_setup(extra):
     if env.get("POKEFACT_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("POKEFACT_APIKEY"),
             },
             extra or {},
         ])

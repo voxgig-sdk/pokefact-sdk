@@ -119,7 +119,6 @@ func get_random_pokemon_factBasicSetup(extra map[string]any) *entityTestSetup {
 		"POKEFACT_TEST_GET_RANDOM_POKEMON_FACT_ENTID": idmap,
 		"POKEFACT_TEST_LIVE":      "FALSE",
 		"POKEFACT_TEST_EXPLAIN":   "FALSE",
-		"POKEFACT_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["POKEFACT_TEST_GET_RANDOM_POKEMON_FACT_ENTID"])
@@ -130,7 +129,6 @@ func get_random_pokemon_factBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["POKEFACT_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["POKEFACT_APIKEY"],
 			},
 			extra,
 		})

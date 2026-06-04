@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'POKEFACT_TEST_GET_RANDOM_POKEMON_FACT_ENTID': idmap,
     'POKEFACT_TEST_LIVE': 'FALSE',
     'POKEFACT_TEST_EXPLAIN': 'FALSE',
-    'POKEFACT_APIKEY': 'NONE',
   })
 
   idmap = env['POKEFACT_TEST_GET_RANDOM_POKEMON_FACT_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new PokefactSDK(merge([
       {
-        apikey: env.POKEFACT_APIKEY,
       },
       extra
     ]))
