@@ -10,13 +10,13 @@ The Ruby SDK for the Pokefact API — an entity-oriented client using idiomatic 
 
 ## Install
 ```bash
-gem install pokefact-sdk
+gem install voxgig-sdk-pokefact
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "pokefact-sdk"
+gem "voxgig-sdk-pokefact"
 ```
 
 Then run:

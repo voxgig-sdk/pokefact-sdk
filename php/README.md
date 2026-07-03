@@ -10,7 +10,7 @@ The PHP SDK for the Pokefact API — an entity-oriented client using PHP convent
 
 ## Install
 ```bash
-composer require voxgig/pokefact-sdk
+composer require voxgig-sdk/pokefact
 ```
 
 

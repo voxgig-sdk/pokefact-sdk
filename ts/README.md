@@ -10,7 +10,7 @@ The TypeScript SDK for the Pokefact API — a type-safe, entity-oriented client 
 
 ## Install
 ```bash
-npm install pokefact
+npm install @voxgig-sdk/pokefact
 ```
 ## Tutorial: your first API call
 

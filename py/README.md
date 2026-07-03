@@ -10,7 +10,7 @@ The Python SDK for the Pokefact API — an entity-oriented client following Pyth
 
 ## Install
 ```bash
-pip install pokefact-sdk
+pip install voxgig-sdk-pokefact
 ```
 
 Or install from source:
