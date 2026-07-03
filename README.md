@@ -1,19 +1,8 @@
 # Pokefact SDK
 
-Fetch a random Pokemon fact with a single GET request, no auth required
+Pokefact API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Pokefact API
-
-The Pokefact API is a small free service that returns a random Pokemon fact on each request. It is hosted on Vercel at `https://pokefacts.vercel.app` and is listed in the [Free Public APIs](https://freepublicapis.com/pokefact) community catalogue.
-
-What you get from the API:
-- A random Pokemon fact returned on each call to the root endpoint.
-- No API key, account, or authentication required.
-- CORS is enabled, so the endpoint can be called directly from browser-based applications.
-
-The service is intentionally minimal: there is a single endpoint that picks a fact and returns it. No filtering, pagination, or query parameters are documented.
 
 ## Try it
 
@@ -47,29 +36,31 @@ gem install pokefact-sdk
 luarocks install pokefact-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { PokefactSDK } from 'pokefact'
 
-const client = new PokefactSDK({})
+const client = new PokefactSDK({
+  apikey: process.env.POKEFACT_APIKEY,
+})
 
 // List all getrandompokemonfacts
 const getrandompokemonfacts = await client.GetRandomPokemonFact().list()
+console.log(getrandompokemonfacts.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -99,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **GetRandomPokemonFact** | Returns one randomly selected Pokemon fact from the service's pool, served from the root path `/`. | `/` |
+| **GetRandomPokemonFact** |  | `/` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -109,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from pokefact_sdk import PokefactSDK
 
-client = PokefactSDK({})
+client = PokefactSDK({
+    "apikey": os.environ.get("POKEFACT_APIKEY"),
+})
 
 # List all getrandompokemonfacts
-getrandompokemonfacts, err = client.GetRandomPokemonFact(None).list(None, None)
+getrandompokemonfacts, err = client.GetRandomPokemonFact().list()
+print(getrandompokemonfacts)
 ```
 
 ### PHP
@@ -123,10 +118,13 @@ getrandompokemonfacts, err = client.GetRandomPokemonFact(None).list(None, None)
 <?php
 require_once 'pokefact_sdk.php';
 
-$client = new PokefactSDK([]);
+$client = new PokefactSDK([
+    "apikey" => getenv("POKEFACT_APIKEY"),
+]);
 
 // List all getrandompokemonfacts
-[$getrandompokemonfacts, $err] = $client->GetRandomPokemonFact(null)->list(null, null);
+[$getrandompokemonfacts, $err] = $client->GetRandomPokemonFact()->list();
+print_r($getrandompokemonfacts);
 ```
 
 ### Golang
@@ -134,10 +132,13 @@ $client = new PokefactSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/pokefact-sdk/go"
 
-client := sdk.NewPokefactSDK(map[string]any{})
+client := sdk.NewPokefactSDK(map[string]any{
+    "apikey": os.Getenv("POKEFACT_APIKEY"),
+})
 
 // List all getrandompokemonfacts
 getrandompokemonfacts, err := client.GetRandomPokemonFact(nil).List(nil, nil)
+fmt.Println(getrandompokemonfacts)
 ```
 
 ### Ruby
@@ -145,10 +146,13 @@ getrandompokemonfacts, err := client.GetRandomPokemonFact(nil).List(nil, nil)
 ```ruby
 require_relative "Pokefact_sdk"
 
-client = PokefactSDK.new({})
+client = PokefactSDK.new({
+  "apikey" => ENV["POKEFACT_APIKEY"],
+})
 
 # List all getrandompokemonfacts
-getrandompokemonfacts, err = client.GetRandomPokemonFact(nil).list(nil, nil)
+getrandompokemonfacts, err = client.GetRandomPokemonFact().list
+puts getrandompokemonfacts
 ```
 
 ### Lua
@@ -156,10 +160,13 @@ getrandompokemonfacts, err = client.GetRandomPokemonFact(nil).list(nil, nil)
 ```lua
 local sdk = require("pokefact_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("POKEFACT_APIKEY"),
+})
 
 -- List all getrandompokemonfacts
-local getrandompokemonfacts, err = client:GetRandomPokemonFact(nil):list(nil, nil)
+local getrandompokemonfacts, err = client:GetRandomPokemonFact():list()
+print(getrandompokemonfacts)
 ```
 
 ## Unit testing in offline mode
@@ -178,25 +185,21 @@ const result = await client.GetRandomPokemonFact().load({ id: 'test01' })
 ### Python
 
 ```python
-client = PokefactSDK.test(None, None)
-result, err = client.GetRandomPokemonFact(None).load(
-    {"id": "test01"}, None
-)
+client = PokefactSDK.test()
+result, err = client.GetRandomPokemonFact().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = PokefactSDK::test(null, null);
-[$result, $err] = $client->GetRandomPokemonFact(null)->load(
-    ["id" => "test01"], null
-);
+$client = PokefactSDK::test();
+[$result, $err] = $client->GetRandomPokemonFact()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.GetRandomPokemonFact(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -205,19 +208,15 @@ result, err := client.GetRandomPokemonFact(nil).Load(
 ### Ruby
 
 ```ruby
-client = PokefactSDK.test(nil, nil)
-result, err = client.GetRandomPokemonFact(nil).load(
-  { "id" => "test01" }, nil
-)
+client = PokefactSDK.test
+result, err = client.GetRandomPokemonFact().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:GetRandomPokemonFact(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:GetRandomPokemonFact():load({ id = "test01" })
 ```
 
 ## How it works
@@ -321,10 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Pokefact API
-
-- Upstream: [https://pokefacts.vercel.app](https://pokefacts.vercel.app)
 
 ---
 

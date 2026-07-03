@@ -38,6 +38,10 @@ class Config {
   options = {
     base: 'https://pokefacts.vercel.app',
 
+    auth: {
+      prefix: 'Bearer',
+    },
+
     headers: {
       "content-type": "application/json"
     },
@@ -55,33 +59,33 @@ class Config {
     "get_random_pokemon_fact": {
       "fields": [
         {
+          "active": true,
           "name": "data",
           "req": true,
           "type": "`$ARRAY`",
-          "active": true,
           "index$": 0
         }
       ],
       "name": "get_random_pokemon_fact",
       "op": {
         "list": {
+          "input": "data",
           "name": "list",
           "points": [
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/",
+              "parts": [],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "parts": [],
-              "args": {},
-              "select": {},
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "list"
         }
       },

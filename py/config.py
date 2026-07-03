@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://pokefacts.vercel.app",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -26,33 +29,33 @@ def make_config():
       "get_random_pokemon_fact": {
         "fields": [
           {
+            "active": True,
             "name": "data",
             "req": True,
             "type": "`$ARRAY`",
-            "active": True,
             "index$": 0,
           },
         ],
         "name": "get_random_pokemon_fact",
         "op": {
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/",
+                "parts": [],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "parts": [],
-                "args": {},
-                "select": {},
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
         },

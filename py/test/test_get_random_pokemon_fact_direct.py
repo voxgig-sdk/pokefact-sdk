@@ -61,12 +61,14 @@ def _get_random_pokemon_fact_direct_setup(mockres):
     env = runner.env_override({
         "POKEFACT_TEST_GET_RANDOM_POKEMON_FACT_ENTID": {},
         "POKEFACT_TEST_LIVE": "FALSE",
+        "POKEFACT_APIKEY": "NONE",
     })
 
     live = env.get("POKEFACT_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("POKEFACT_APIKEY"),
         }
         client = PokefactSDK(merged_opts)
         return {

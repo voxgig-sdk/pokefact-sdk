@@ -63,12 +63,14 @@ function get_random_pokemon_fact_direct_setup(mockres)
   local env = runner.env_override({
     ["POKEFACT_TEST_GET_RANDOM_POKEMON_FACT_ENTID"] = {},
     ["POKEFACT_TEST_LIVE"] = "FALSE",
+    ["POKEFACT_APIKEY"] = "NONE",
   })
 
   local live = env["POKEFACT_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["POKEFACT_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {
