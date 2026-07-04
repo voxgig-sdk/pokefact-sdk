@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://pokefacts.vercel.app',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },

@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:get_random_pokemon_fact():list() / client:get_random_pokemon_fact():load({ id = ... })
+function PokefactSDK:get_random_pokemon_fact(data)
+  local EntityMod = require("entity.get_random_pokemon_fact_entity")
+  if data == nil then
+    if self._get_random_pokemon_fact == nil then
+      self._get_random_pokemon_fact = EntityMod.new(self, nil)
+    end
+    return self._get_random_pokemon_fact
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:get_random_pokemon_fact() instead.
 function PokefactSDK:GetRandomPokemonFact(data)
   local EntityMod = require("entity.get_random_pokemon_fact_entity")
   return EntityMod.new(self, data)

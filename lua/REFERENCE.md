@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -84,7 +83,7 @@ same parameters as `direct()`.
 ## GetRandomPokemonFactEntity
 
 ```lua
-local get_random_pokemon_fact = client:GetRandomPokemonFact(nil)
+local get_random_pokemon_fact = client:get_random_pokemon_fact(nil)
 ```
 
 ### Fields
@@ -100,7 +99,7 @@ local get_random_pokemon_fact = client:GetRandomPokemonFact(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:GetRandomPokemonFact():list()
+local results, err = client:get_random_pokemon_fact():list()
 ```
 
 ### Common Methods

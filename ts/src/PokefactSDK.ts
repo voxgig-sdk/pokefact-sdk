@@ -2,6 +2,8 @@
 
 import { GetRandomPokemonFactEntity } from './entity/GetRandomPokemonFactEntity'
 
+export type * from './PokefactTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class PokefactSDK {
 
 
 
+  _get_random_pokemon_fact?: GetRandomPokemonFactEntity
+
+  // Idiomatic facade: `client.get_random_pokemon_fact.list()` / `client.get_random_pokemon_fact.load({ id })`.
+  get get_random_pokemon_fact(): GetRandomPokemonFactEntity {
+    return (this._get_random_pokemon_fact ??= new GetRandomPokemonFactEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.get_random_pokemon_fact` instead. */
   GetRandomPokemonFact(data?: any) {
     const self = this
     return new GetRandomPokemonFactEntity(self,data)

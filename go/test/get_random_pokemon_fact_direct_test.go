@@ -93,14 +93,12 @@ func get_random_pokemon_factDirectSetup(mockres any) *get_random_pokemon_factDir
 	env := envOverride(map[string]any{
 		"POKEFACT_TEST_GET_RANDOM_POKEMON_FACT_ENTID": map[string]any{},
 		"POKEFACT_TEST_LIVE":    "FALSE",
-		"POKEFACT_APIKEY":       "NONE",
 	})
 
 	live := env["POKEFACT_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["POKEFACT_APIKEY"],
 		}
 		client := sdk.NewPokefactSDK(mergedOpts)
 

@@ -50,8 +50,7 @@ class TestGetRandomPokemonFactEntity:
         get_random_pokemon_fact_ref01_ent = client.GetRandomPokemonFact(None)
         get_random_pokemon_fact_ref01_match = {}
 
-        get_random_pokemon_fact_ref01_list_result, err = get_random_pokemon_fact_ref01_ent.list(get_random_pokemon_fact_ref01_match, None)
-        assert err is None
+        get_random_pokemon_fact_ref01_list_result = get_random_pokemon_fact_ref01_ent.list(get_random_pokemon_fact_ref01_match, None)
         assert isinstance(get_random_pokemon_fact_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _get_random_pokemon_fact_basic_setup(extra):
         "POKEFACT_TEST_GET_RANDOM_POKEMON_FACT_ENTID": idmap,
         "POKEFACT_TEST_LIVE": "FALSE",
         "POKEFACT_TEST_EXPLAIN": "FALSE",
-        "POKEFACT_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _get_random_pokemon_fact_basic_setup(extra):
     if env.get("POKEFACT_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("POKEFACT_APIKEY"),
             },
             extra or {},
         ])

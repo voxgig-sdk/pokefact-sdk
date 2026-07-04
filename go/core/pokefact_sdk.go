@@ -245,6 +245,9 @@ func (sdk *PokefactSDK) Direct(fetchargs map[string]any) (map[string]any, error)
 }
 
 
+// GetRandomPokemonFact returns a GetRandomPokemonFact entity bound to this client.
+// Idiomatic usage: client.GetRandomPokemonFact(nil).List(nil, nil) or
+// client.GetRandomPokemonFact(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *PokefactSDK) GetRandomPokemonFact(data map[string]any) PokefactEntity {
 	return NewGetRandomPokemonFactEntityFunc(sdk, data)
 }

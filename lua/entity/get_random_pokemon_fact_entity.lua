@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch GetRandomPokemonFactListMatch
+---@param ctrl? table
+---@return GetRandomPokemonFact[]
+---@return string? err
 function GetRandomPokemonFactEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

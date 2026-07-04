@@ -45,6 +45,7 @@ class GetRandomPokemonFactEntity
     end
   end
 
+  # @return [GetRandomPokemonFact, Hash] the current GetRandomPokemonFact data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class GetRandomPokemonFactEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of GetRandomPokemonFact fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class GetRandomPokemonFactEntity
   
 
   
+  # List GetRandomPokemonFact items matching the given filter.
+  #
+  # @param reqmatch [GetRandomPokemonFactListMatch, Hash, nil] match filter (any subset of GetRandomPokemonFact fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<GetRandomPokemonFact>, Array] the matching GetRandomPokemonFact items; raises PokefactError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

@@ -9,12 +9,9 @@ The Lua SDK for the Pokefact API — an entity-oriented client using Lua convent
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-pokefact
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/pokefact-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("pokefact_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("POKEFACT_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List getrandompokemonfacts
 
 ```lua
-local result, err = client:GetRandomPokemonFact():list()
+local result, err = client:getrandompokemonfact():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +88,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Pokefact():load({ id = "test01" })
+local result, err = client:getrandompokemonfact():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -127,7 +122,6 @@ Create a `.env.local` file at the project root:
 
 ```
 POKEFACT_TEST_LIVE=TRUE
-POKEFACT_APIKEY=<your-key>
 ```
 
 Then run:
@@ -150,7 +144,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -227,7 +220,7 @@ API path: `/`
 
 ### GetRandomPokemonFact
 
-Create an instance: `const get_random_pokemon_fact = client.GetRandomPokemonFact()`
+Create an instance: `const get_random_pokemon_fact = client.get_random_pokemon_fact`
 
 #### Operations
 
@@ -244,7 +237,7 @@ Create an instance: `const get_random_pokemon_fact = client.GetRandomPokemonFact
 #### Example: List
 
 ```ts
-const get_random_pokemon_facts = await client.GetRandomPokemonFact().list()
+const get_random_pokemon_facts = await client.get_random_pokemon_fact.list()
 ```
 
 
@@ -319,11 +312,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local getrandompokemonfact = client:getrandompokemonfact()
+getrandompokemonfact:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- getrandompokemonfact:data_get() now returns the loaded getrandompokemonfact data
+-- getrandompokemonfact:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

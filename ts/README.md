@@ -9,9 +9,12 @@ The TypeScript SDK for the Pokefact API — a type-safe, entity-oriented client 
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/pokefact
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/pokefact-sdk/releases](https://github.com/voxgig-sdk/pokefact-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { PokefactSDK } from 'pokefact'
+import { PokefactSDK } from '@voxgig-sdk/pokefact'
 
-const client = new PokefactSDK({
-  apikey: process.env.POKEFACT_APIKEY,
-})
+const client = new PokefactSDK()
 ```
 
 ### 2. List getrandompokemonfacts
 
 ```ts
-const result = await client.GetRandomPokemonFact().list()
+const result = await client.getrandompokemonfact.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = PokefactSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.getrandompokemonfact.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -89,7 +90,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new PokefactSDK({ apikey: '...' })
+const client = new PokefactSDK()
 const testClient = client.tester()
 ```
 
@@ -98,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.getrandompokemonfact
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -125,7 +126,6 @@ const logger = {
 }
 
 const client = new PokefactSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -136,7 +136,6 @@ Create a `.env.local` file at the project root:
 
 ```
 POKEFACT_TEST_LIVE=TRUE
-POKEFACT_APIKEY=<your-key>
 ```
 
 Then run:
@@ -154,7 +153,6 @@ cd ts && npm test
 
 ```ts
 new PokefactSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -165,7 +163,6 @@ new PokefactSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -268,7 +265,7 @@ API path: `/`
 
 ### GetRandomPokemonFact
 
-Create an instance: `const get_random_pokemon_fact = client.GetRandomPokemonFact()`
+Create an instance: `const get_random_pokemon_fact = client.get_random_pokemon_fact`
 
 #### Operations
 
@@ -285,7 +282,7 @@ Create an instance: `const get_random_pokemon_fact = client.GetRandomPokemonFact
 #### Example: List
 
 ```ts
-const get_random_pokemon_facts = await client.GetRandomPokemonFact().list()
+const get_random_pokemon_facts = await client.get_random_pokemon_fact.list()
 ```
 
 
@@ -346,7 +343,7 @@ pokefact/
 Import the SDK from the package root:
 
 ```ts
-import { PokefactSDK } from 'pokefact'
+import { PokefactSDK } from '@voxgig-sdk/pokefact'
 ```
 
 ### Entity state
@@ -356,11 +353,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const getrandompokemonfact = client.getrandompokemonfact
+await getrandompokemonfact.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// getrandompokemonfact.data() now returns the loaded getrandompokemonfact data
+// getrandompokemonfact.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration
