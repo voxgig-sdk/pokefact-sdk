@@ -26,9 +26,11 @@ import { PokefactSDK } from '@voxgig-sdk/pokefact'
 
 const client = new PokefactSDK()
 
-// List all getrandompokemonfacts
-const getrandompokemonfacts = await client.getrandompokemonfact.list()
-console.log(getrandompokemonfacts.data)
+// List all getrandompokemonfacts (returns GetRandomPokemonFact[])
+const getrandompokemonfacts = await client.GetRandomPokemonFact().list()
+for (const getrandompokemonfact of getrandompokemonfacts) {
+  console.log(getrandompokemonfact)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,9 +85,10 @@ from pokefact_sdk import PokefactSDK
 
 client = PokefactSDK()
 
-# List all getrandompokemonfacts
-getrandompokemonfacts = client.getrandompokemonfact.list()
-print(getrandompokemonfacts)
+# List all getrandompokemonfacts (returns a list, raises on error)
+getrandompokemonfacts = client.GetRandomPokemonFact().list({})
+for getrandompokemonfact in getrandompokemonfacts:
+    print(getrandompokemonfact)
 ```
 
 ### PHP
@@ -96,8 +99,8 @@ require_once 'pokefact_sdk.php';
 
 $client = new PokefactSDK();
 
-// List all getrandompokemonfacts (throws on error)
-$getrandompokemonfacts = $client->getrandompokemonfact()->list();
+// List all getrandompokemonfacts (returns an array; throws on error)
+$getrandompokemonfacts = $client->GetRandomPokemonFact()->list();
 print_r($getrandompokemonfacts);
 ```
 
@@ -120,8 +123,8 @@ require_relative "Pokefact_sdk"
 
 client = PokefactSDK.new
 
-# List all getrandompokemonfacts
-getrandompokemonfacts = client.getrandompokemonfact.list
+# List all getrandompokemonfacts (returns an Array; raises on error)
+getrandompokemonfacts = client.GetRandomPokemonFact.list
 puts getrandompokemonfacts
 ```
 
@@ -133,7 +136,7 @@ local sdk = require("pokefact_sdk")
 local client = sdk.new()
 
 -- List all getrandompokemonfacts
-local getrandompokemonfacts, err = client:getrandompokemonfact():list()
+local getrandompokemonfacts, err = client:GetRandomPokemonFact():list()
 print(getrandompokemonfacts)
 ```
 
@@ -146,22 +149,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = PokefactSDK.test()
-const result = await client.getrandompokemonfact.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const getrandompokemonfact = await client.GetRandomPokemonFact().load({ id: 'test01' })
+// getrandompokemonfact is a bare GetRandomPokemonFact populated with mock data
+console.log(getrandompokemonfact)
 ```
 
 ### Python
 
 ```python
 client = PokefactSDK.test()
-result = client.getrandompokemonfact.load({"id": "test01"})
+getrandompokemonfact = client.GetRandomPokemonFact().load({"id": "test01"})
+print(getrandompokemonfact)
 ```
 
 ### PHP
 
 ```php
-$client = PokefactSDK::test();
-$result = $client->getrandompokemonfact()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = PokefactSDK::test([
+    "entity" => ["getrandompokemonfact" => ["test01" => ["id" => "test01"]]],
+]);
+$getrandompokemonfact = $client->GetRandomPokemonFact()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -176,15 +184,18 @@ result, err := client.GetRandomPokemonFact(nil).Load(
 ### Ruby
 
 ```ruby
-client = PokefactSDK.test
-result = client.getrandompokemonfact.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = PokefactSDK.test({
+  "entity" => { "getrandompokemonfact" => { "test01" => { "id" => "test01" } } },
+})
+getrandompokemonfact = client.GetRandomPokemonFact.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:getrandompokemonfact():load({ id = "test01" })
+local result, err = client:GetRandomPokemonFact():load({ id = "test01" })
 ```
 
 ## How it works
@@ -232,6 +243,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

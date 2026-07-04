@@ -29,18 +29,16 @@ require_once 'pokefact_sdk.php';
 $client = new PokefactSDK();
 ```
 
-### 2. List getrandompokemonfacts
+### 2. List getrandompokemonfact records
 
 ```php
 try {
-    $result = $client->getrandompokemonfact()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of GetRandomPokemonFact records — iterate directly.
+    $getrandompokemonfacts = $client->GetRandomPokemonFact()->list();
+    foreach ($getrandompokemonfacts as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = PokefactSDK::test();
+$client = PokefactSDK::test([
+    "entity" => ["getrandompokemonfact" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->getrandompokemonfact()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$getrandompokemonfact = $client->GetRandomPokemonFact()->load(["id" => "test01"]);
+print_r($getrandompokemonfact);
 ```
 
 ### Use a custom fetch function
@@ -228,7 +230,7 @@ API path: `/`
 
 ### GetRandomPokemonFact
 
-Create an instance: `const get_random_pokemon_fact = client.get_random_pokemon_fact`
+Create an instance: `$get_random_pokemon_fact = $client->GetRandomPokemonFact();`
 
 #### Operations
 
@@ -244,8 +246,9 @@ Create an instance: `const get_random_pokemon_fact = client.get_random_pokemon_f
 
 #### Example: List
 
-```ts
-const get_random_pokemon_facts = await client.get_random_pokemon_fact.list()
+```php
+// list() returns an array of GetRandomPokemonFact records (throws on error).
+$get_random_pokemon_facts = $client->GetRandomPokemonFact()->list();
 ```
 
 
@@ -320,7 +323,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$getrandompokemonfact = $client->getrandompokemonfact();
+$getrandompokemonfact = $client->GetRandomPokemonFact();
 $getrandompokemonfact->load(["id" => "example_id"]);
 
 // $getrandompokemonfact->dataGet() now returns the loaded getrandompokemonfact data

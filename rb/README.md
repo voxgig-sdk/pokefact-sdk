@@ -28,16 +28,14 @@ require_relative "Pokefact_sdk"
 client = PokefactSDK.new
 ```
 
-### 2. List getrandompokemonfacts
+### 2. List getrandompokemonfact records
 
 ```ruby
 begin
-  result = client.getrandompokemonfact.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of GetRandomPokemonFact records — iterate directly.
+  getrandompokemonfacts = client.GetRandomPokemonFact.list
+  getrandompokemonfacts.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = PokefactSDK.test
+client = PokefactSDK.test({
+  "entity" => { "getrandompokemonfact" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.getrandompokemonfact.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+getrandompokemonfact = client.GetRandomPokemonFact.load({ "id" => "test01" })
+puts getrandompokemonfact
 ```
 
 ### Use a custom fetch function
@@ -223,7 +225,7 @@ API path: `/`
 
 ### GetRandomPokemonFact
 
-Create an instance: `const get_random_pokemon_fact = client.get_random_pokemon_fact`
+Create an instance: `get_random_pokemon_fact = client.GetRandomPokemonFact`
 
 #### Operations
 
@@ -239,8 +241,9 @@ Create an instance: `const get_random_pokemon_fact = client.get_random_pokemon_f
 
 #### Example: List
 
-```ts
-const get_random_pokemon_facts = await client.get_random_pokemon_fact.list()
+```ruby
+# list returns an Array of GetRandomPokemonFact records (raises on error).
+get_random_pokemon_facts = client.GetRandomPokemonFact.list
 ```
 
 
@@ -315,7 +318,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-getrandompokemonfact = client.getrandompokemonfact
+getrandompokemonfact = client.GetRandomPokemonFact
 getrandompokemonfact.load({ "id" => "example_id" })
 
 # getrandompokemonfact.data_get now returns the loaded getrandompokemonfact data

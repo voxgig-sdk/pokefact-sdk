@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## GetRandomPokemonFactEntity
 
 ```lua
-local get_random_pokemon_fact = client:get_random_pokemon_fact(nil)
+local get_random_pokemon_fact = client:GetRandomPokemonFact(nil)
 ```
 
 ### Fields
@@ -99,7 +99,7 @@ local get_random_pokemon_fact = client:get_random_pokemon_fact(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:get_random_pokemon_fact():list()
+local results, err = client:GetRandomPokemonFact():list()
 ```
 
 ### Common Methods

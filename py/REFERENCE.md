@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## GetRandomPokemonFactEntity
 
 ```python
-get_random_pokemon_fact = client.get_random_pokemon_fact
+get_random_pokemon_fact = client.GetRandomPokemonFact()
 ```
 
 ### Fields
@@ -96,7 +96,9 @@ get_random_pokemon_fact = client.get_random_pokemon_fact
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.get_random_pokemon_fact.list({})
+results = client.GetRandomPokemonFact().list({})
+for get_random_pokemon_fact in results:
+    print(get_random_pokemon_fact)
 ```
 
 ### Common Methods

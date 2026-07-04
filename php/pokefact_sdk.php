@@ -233,10 +233,10 @@ class PokefactSDK
 
     private $_get_random_pokemon_fact = null;
 
-    // Idiomatic facade: $client->get_random_pokemon_fact()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GetRandomPokemonFact() (PHP method
-    // names are case-insensitive).
-    public function get_random_pokemon_fact($data = null)
+    // Canonical facade: $client->GetRandomPokemonFact()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->get_random_pokemon_fact()
+    // resolves here too.
+    public function GetRandomPokemonFact($data = null)
     {
         require_once __DIR__ . '/entity/get_random_pokemon_fact_entity.php';
         if ($data === null) {

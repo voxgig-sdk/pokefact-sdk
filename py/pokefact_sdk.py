@@ -220,25 +220,15 @@ class PokefactSDK:
         }
 
 
-    @property
-    def get_random_pokemon_fact(self):
-        """Idiomatic facade: client.get_random_pokemon_fact.list() / client.get_random_pokemon_fact.load({"id": ...})."""
-        from entity.get_random_pokemon_fact_entity import GetRandomPokemonFactEntity
-        cached = getattr(self, "_get_random_pokemon_fact", None)
-        if cached is None:
-            cached = GetRandomPokemonFactEntity(self, None)
-            self._get_random_pokemon_fact = cached
-        return cached
-
-    def GetRandomPokemonFact(self, data=None):
-        # Deprecated: use client.get_random_pokemon_fact instead.
+    def GetRandomPokemonFact(self, data=None) -> "GetRandomPokemonFactEntity":
+        """Entity factory: client.GetRandomPokemonFact().list({}) / client.GetRandomPokemonFact().load({"id": ...})."""
         from entity.get_random_pokemon_fact_entity import GetRandomPokemonFactEntity
         return GetRandomPokemonFactEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "PokefactSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class PokefactSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.get_random_pokemon_fact_entity import GetRandomPokemonFactEntity

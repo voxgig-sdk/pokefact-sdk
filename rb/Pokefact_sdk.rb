@@ -208,13 +208,7 @@ class PokefactSDK
   end
 
 
-  # Idiomatic facade: client.get_random_pokemon_fact.list / client.get_random_pokemon_fact.load({ "id" => ... })
-  def get_random_pokemon_fact
-    require_relative 'entity/get_random_pokemon_fact_entity'
-    @get_random_pokemon_fact ||= GetRandomPokemonFactEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.get_random_pokemon_fact instead.
+  # Canonical facade: client.GetRandomPokemonFact.list / client.GetRandomPokemonFact.load({ "id" => ... })
   def GetRandomPokemonFact(data = nil)
     require_relative 'entity/get_random_pokemon_fact_entity'
     GetRandomPokemonFactEntity.new(self, data)

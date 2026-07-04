@@ -31,14 +31,16 @@ from pokefact_sdk import PokefactSDK
 client = PokefactSDK()
 ```
 
-### 2. List getrandompokemonfacts
+### 2. List getrandompokemonfact records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.getrandompokemonfact.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    getrandompokemonfacts = client.GetRandomPokemonFact().list({})
+    for getrandompokemonfact in getrandompokemonfacts:
+        print(getrandompokemonfact)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = PokefactSDK.test()
 
-result = client.getrandompokemonfact.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+getrandompokemonfact = client.GetRandomPokemonFact().load({"id": "test01"})
+# getrandompokemonfact contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -220,7 +223,7 @@ API path: `/`
 
 ### GetRandomPokemonFact
 
-Create an instance: `const get_random_pokemon_fact = client.get_random_pokemon_fact`
+Create an instance: `get_random_pokemon_fact = client.GetRandomPokemonFact()`
 
 #### Operations
 
@@ -236,8 +239,8 @@ Create an instance: `const get_random_pokemon_fact = client.get_random_pokemon_f
 
 #### Example: List
 
-```ts
-const get_random_pokemon_facts = await client.get_random_pokemon_fact.list()
+```python
+get_random_pokemon_facts = client.GetRandomPokemonFact().list({})
 ```
 
 
@@ -311,7 +314,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-getrandompokemonfact = client.getrandompokemonfact
+getrandompokemonfact = client.GetRandomPokemonFact()
 getrandompokemonfact.load({"id": "example_id"})
 
 # getrandompokemonfact.data_get() now returns the loaded getrandompokemonfact data

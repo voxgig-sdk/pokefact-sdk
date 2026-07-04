@@ -109,7 +109,7 @@ Alias for `PokefactSDK.test()`.
 ## GetRandomPokemonFactEntity
 
 ```ts
-const get_random_pokemon_fact = client.get_random_pokemon_fact
+const get_random_pokemon_fact = client.GetRandomPokemonFact()
 ```
 
 ### Fields
@@ -125,7 +125,7 @@ const get_random_pokemon_fact = client.get_random_pokemon_fact
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.get_random_pokemon_fact.list()
+const results = await client.GetRandomPokemonFact().list()
 ```
 
 ### Common Methods

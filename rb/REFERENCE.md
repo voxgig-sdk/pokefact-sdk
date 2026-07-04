@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## GetRandomPokemonFactEntity
 
 ```ruby
-get_random_pokemon_fact = client.get_random_pokemon_fact
+get_random_pokemon_fact = client.GetRandomPokemonFact
 ```
 
 ### Fields
@@ -102,7 +102,7 @@ get_random_pokemon_fact = client.get_random_pokemon_fact
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.get_random_pokemon_fact.list(nil)
+results = client.GetRandomPokemonFact.list(nil)
 ```
 
 ### Common Methods

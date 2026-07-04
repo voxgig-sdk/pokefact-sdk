@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## GetRandomPokemonFactEntity
 
 ```php
-$get_random_pokemon_fact = $client->get_random_pokemon_fact();
+$get_random_pokemon_fact = $client->GetRandomPokemonFact();
 ```
 
 ### Fields
@@ -101,7 +101,7 @@ $get_random_pokemon_fact = $client->get_random_pokemon_fact();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->get_random_pokemon_fact()->list([]);
+$results = $client->GetRandomPokemonFact()->list([]);
 ```
 
 ### Common Methods
