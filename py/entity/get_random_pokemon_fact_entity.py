@@ -66,8 +66,12 @@ class GetRandomPokemonFactEntity:
     
 
     
-    def list(self, reqmatch: GetRandomPokemonFactListMatch, ctrl=None) -> list[GetRandomPokemonFact]:
+    def list(self, reqmatch=None, ctrl=None) -> list[GetRandomPokemonFact]:
         utility = self._utility
+        # reqmatch is optional: an omitted match lists all records. Treat None
+        # as an empty match so client.GetRandomPokemonFact().list() works with no args.
+        if reqmatch is None:
+            reqmatch = {}
         ctx = utility.make_context({
             "opname": "list",
             "ctrl": ctrl,

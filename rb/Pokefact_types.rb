@@ -17,7 +17,7 @@ GetRandomPokemonFact = Struct.new(
   keyword_init: true
 )
 
-# Match filter for GetRandomPokemonFact#list (any subset of GetRandomPokemonFact fields).
+# Request payload for GetRandomPokemonFact#list.
 #
 # @!attribute [rw] data
 #   @return [Array, nil]

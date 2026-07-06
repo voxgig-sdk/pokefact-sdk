@@ -221,7 +221,7 @@ class PokefactSDK:
 
 
     def GetRandomPokemonFact(self, data=None) -> "GetRandomPokemonFactEntity":
-        """Entity factory: client.GetRandomPokemonFact().list({}) / client.GetRandomPokemonFact().load({"id": ...})."""
+        """Entity factory: client.GetRandomPokemonFact().list() / client.GetRandomPokemonFact().load({"id": ...})."""
         from entity.get_random_pokemon_fact_entity import GetRandomPokemonFactEntity
         return GetRandomPokemonFactEntity(self, data)
 

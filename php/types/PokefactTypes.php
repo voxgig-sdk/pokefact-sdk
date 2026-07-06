@@ -18,7 +18,7 @@ class GetRandomPokemonFact
     public array $data;
 }
 
-/** Match filter for GetRandomPokemonFact#list (any subset of GetRandomPokemonFact fields). */
+/** Request payload for GetRandomPokemonFact#list. */
 class GetRandomPokemonFactListMatch
 {
     public ?array $data = null;

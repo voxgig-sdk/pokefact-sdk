@@ -90,7 +90,7 @@ local get_random_pokemon_fact = client:GetRandomPokemonFact(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$ARRAY`` | Yes |  |
+| `data` | `table` | Yes |  |
 
 ### Operations
 

@@ -9,5 +9,7 @@ export interface GetRandomPokemonFact {
   data: any[]
 }
 
-export type GetRandomPokemonFactListMatch = Partial<GetRandomPokemonFact>
+export interface GetRandomPokemonFactListMatch {
+  data?: any[]
+}
 

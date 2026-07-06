@@ -87,16 +87,16 @@ get_random_pokemon_fact = client.GetRandomPokemonFact()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$ARRAY`` | Yes |  |
+| `data` | `list` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.GetRandomPokemonFact().list({})
+results = client.GetRandomPokemonFact().list()
 for get_random_pokemon_fact in results:
     print(get_random_pokemon_fact)
 ```

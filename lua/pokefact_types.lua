@@ -10,6 +10,7 @@
 ---@field data table
 
 ---@class GetRandomPokemonFactListMatch
+---@field data? table
 
 local M = {}
 

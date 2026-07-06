@@ -13,8 +13,7 @@ type GetRandomPokemonFact struct {
 	Data []any `json:"data"`
 }
 
-// GetRandomPokemonFactListMatch mirrors the get_random_pokemon_fact fields as an all-optional match
-// filter (Go analog of Partial<GetRandomPokemonFact>).
+// GetRandomPokemonFactListMatch is the typed request payload for GetRandomPokemonFact.ListTyped.
 type GetRandomPokemonFactListMatch struct {
 	Data *[]any `json:"data,omitempty"`
 }
