@@ -15,9 +15,9 @@ main: {
           url: "https://pokefacts.vercel.app"
         }
       ]
+      summary: "API chooses a random Pokemon fact and displays it to the user."
       title: "Pokefact API"
       version: "1.0.0"
+      website: "https://pokefacts.vercel.app"
     }
   }
-}
-

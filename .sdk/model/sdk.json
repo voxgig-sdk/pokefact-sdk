@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -188,14 +185,17 @@
           "url": "https://pokefacts.vercel.app"
         },
         "description": "API chooses a random Pokemon fact and displays it to the user.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://pokefacts.vercel.app"
           }
         ],
+        "summary": "API chooses a random Pokemon fact and displays it to the user.",
         "title": "Pokefact API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://pokefacts.vercel.app"
       },
       "option": {},
       "target": {
@@ -248,6 +248,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -298,6 +301,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

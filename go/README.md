@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // List getrandompokemonfact records — the value is the array of records itself.
-    getrandompokemonfacts, err := client.GetRandomPokemonFact(nil).List(nil, nil)
+    // List getRandomPokemonFact records — the value is the array of records itself.
+    getRandomPokemonFacts, err := client.GetRandomPokemonFact(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-    for _, item := range getrandompokemonfacts.([]any) {
+    for _, item := range getRandomPokemonFacts.([]any) {
         fmt.Println(item)
     }
 }
@@ -137,13 +137,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-getrandompokemonfact, err := client.GetRandomPokemonFact(nil).List(
+getRandomPokemonFact, err := client.GetRandomPokemonFact(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(getrandompokemonfact) // the returned mock data
+fmt.Println(getRandomPokemonFact) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -247,9 +247,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    getrandompokemonfact, err := client.GetRandomPokemonFact(nil).List(map[string]any{/* fields */}, nil)
+    getRandomPokemonFact, err := client.GetRandomPokemonFact(nil).List(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // getrandompokemonfact is the returned record
+    // getRandomPokemonFact is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -273,7 +273,7 @@ API path: `/`
 
 ### GetRandomPokemonFact
 
-Create an instance: `get_random_pokemon_fact := client.GetRandomPokemonFact(nil)`
+Create an instance: `getRandomPokemonFact := client.GetRandomPokemonFact(nil)`
 
 #### Operations
 
@@ -290,11 +290,11 @@ Create an instance: `get_random_pokemon_fact := client.GetRandomPokemonFact(nil)
 #### Example: List
 
 ```go
-get_random_pokemon_facts, err := client.GetRandomPokemonFact(nil).List(nil, nil)
+getRandomPokemonFacts, err := client.GetRandomPokemonFact(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(get_random_pokemon_facts) // the array of records
+fmt.Println(getRandomPokemonFacts) // the array of records
 ```
 
 

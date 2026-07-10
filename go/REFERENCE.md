@@ -90,7 +90,8 @@ same parameters as `Direct()`.
 ## GetRandomPokemonFactEntity
 
 ```go
-get_random_pokemon_fact := client.GetRandomPokemonFact(nil)
+getRandomPokemonFact := client.GetRandomPokemonFact(nil)
+fmt.Println(getRandomPokemonFact.GetName()) // "get_random_pokemon_fact"
 ```
 
 ### Fields
@@ -107,6 +108,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.GetRandomPokemonFact(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
