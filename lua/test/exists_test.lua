@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Pokefact SDK exists test
 
 local sdk = require("pokefact_sdk")
 
