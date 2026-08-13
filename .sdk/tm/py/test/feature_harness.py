@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import PokefactControl
-from core.error import PokefactError
-from core.result import PokefactResult
-from core.spec import PokefactSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import PokefactControl
+from projectname_sdk.core.error import PokefactError
+from projectname_sdk.core.result import PokefactResult
+from projectname_sdk.core.spec import PokefactSpec
 
 
 # True when this SDK was generated with the named feature.

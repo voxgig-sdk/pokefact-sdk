@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import PokefactSDK
-from core.error import PokefactError
-from core.result import PokefactResult
-from core.response import PokefactResponse
-from core.spec import PokefactSpec
-from feature.base_feature import PokefactBaseFeature
+from projectname_sdk.core.error import PokefactError
+from projectname_sdk.core.result import PokefactResult
+from projectname_sdk.core.response import PokefactResponse
+from projectname_sdk.core.spec import PokefactSpec
+from projectname_sdk.feature.base_feature import PokefactBaseFeature
 
 
 def _client():

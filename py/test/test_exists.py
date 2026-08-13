@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Pokefact SDK exists test
 
 import pytest
 from pokefact_sdk import PokefactSDK

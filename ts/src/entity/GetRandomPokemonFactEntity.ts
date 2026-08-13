@@ -37,7 +37,7 @@ class GetRandomPokemonFactEntity extends PokefactEntityBase<GetRandomPokemonFact
 
 
 
-  async list(this: any, reqmatch?: GetRandomPokemonFactListMatch, ctrl?: Control): Promise<GetRandomPokemonFact[]> {
+  async list(this: any, reqmatch?: GetRandomPokemonFactListMatch, ctrl?: Control): Promise<GetRandomPokemonFactEntity[]> {
 
     const utility = this._utility
 

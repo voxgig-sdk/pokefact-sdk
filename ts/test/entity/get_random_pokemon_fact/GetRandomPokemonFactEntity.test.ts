@@ -63,7 +63,7 @@ describe('GetRandomPokemonFactEntity', async () => {
     const get_random_pokemon_fact_ref01_ent = client.GetRandomPokemonFact()
     const get_random_pokemon_fact_ref01_match: any = {}
 
-    const get_random_pokemon_fact_ref01_list = await get_random_pokemon_fact_ref01_ent.list(get_random_pokemon_fact_ref01_match)
+    const get_random_pokemon_fact_ref01_list = (await get_random_pokemon_fact_ref01_ent.list(get_random_pokemon_fact_ref01_match)).map((e: any) => e.data())
 
 
   })

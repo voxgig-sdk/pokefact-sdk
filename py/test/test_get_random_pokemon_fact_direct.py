@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from pokefact_sdk.utility.voxgig_struct import voxgig_struct as vs
 from pokefact_sdk import PokefactSDK
-from core import helpers
+from pokefact_sdk.core import helpers
 from test import runner
 
 

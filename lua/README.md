@@ -218,9 +218,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local get_random_pokemon_fact, err = client:GetRandomPokemonFact():load()
+    local get_random_pokemon_fact, err = client:GetRandomPokemonFact():list()
     if err then error(err) end
-    -- get_random_pokemon_fact is the loaded record
+    -- get_random_pokemon_fact is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.

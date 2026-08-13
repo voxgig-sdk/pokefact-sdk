@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = PokefactSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = PokefactSDK.test({
+  entity: {
+    get_random_pokemon_fact: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const getrandompokemonfacts = await client.GetRandomPokemonFact().list()
-// getrandompokemonfacts is an array of bare GetRandomPokemonFact records populated with mock data
+// getrandompokemonfacts is an array of GetRandomPokemonFact entities, populated with mock data
+// — call getrandompokemonfacts[0].data() for the record itself
 console.log(getrandompokemonfacts)
 ```
 
@@ -110,7 +119,7 @@ import { PokefactSDK } from '@voxgig-sdk/pokefact'
 
 const client = new PokefactSDK()
 
-// List all getrandompokemonfacts (returns GetRandomPokemonFact[])
+// List all getrandompokemonfacts (returns GetRandomPokemonFactEntity[] — .data() for the record)
 const getrandompokemonfacts = await client.GetRandomPokemonFact().list()
 for (const getrandompokemonfact of getrandompokemonfacts) {
   console.log(getrandompokemonfact)
@@ -343,6 +352,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://pokefacts.vercel.app](https://pokefacts.vercel.app)
 
