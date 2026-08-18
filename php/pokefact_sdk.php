@@ -40,7 +40,7 @@ class PokefactSDK
         $utility = new PokefactUtility();
         $this->_utility = $utility;
 
-        $config = PokefactConfig::make_config();
+        $config = PokefactConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

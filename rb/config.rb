@@ -1,6 +1,20 @@
 # Pokefact SDK configuration
 
 module PokefactConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -26,11 +40,9 @@ module PokefactConfig
         "get_random_pokemon_fact" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "data",
               "req" => true,
               "type" => "`$ARRAY`",
-              "index$" => 0,
             },
           ],
           "name" => "get_random_pokemon_fact",
@@ -40,7 +52,6 @@ module PokefactConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -51,10 +62,8 @@ module PokefactConfig
                     "req" => "`reqdata`",
                     "res" => "`body.data`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {

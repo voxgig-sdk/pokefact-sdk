@@ -1,5 +1,8 @@
 -- Pokefact SDK configuration
 
+-- Build a fresh, fully materialised config table. Every call rebuilds the
+-- whole structure, so prefer require("config_shared") unless you need a
+-- private copy you intend to mutate.
 local function make_config()
   return {
     main = {
@@ -25,11 +28,9 @@ local function make_config()
       ["get_random_pokemon_fact"] = {
         ["fields"] = {
           {
-            ["active"] = true,
             ["name"] = "data",
             ["req"] = true,
             ["type"] = "`$ARRAY`",
-            ["index$"] = 0,
           },
         },
         ["name"] = "get_random_pokemon_fact",
@@ -39,7 +40,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
@@ -50,10 +50,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.data`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "list",
           },
         },
         ["relations"] = {

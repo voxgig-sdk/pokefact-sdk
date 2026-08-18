@@ -28,7 +28,7 @@ class PokefactSDK
     utility = PokefactUtility.new
     @_utility = utility
 
-    config = PokefactConfig.make_config
+    config = PokefactConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
