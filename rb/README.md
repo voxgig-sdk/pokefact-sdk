@@ -237,7 +237,7 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
+| `data` | Array containing Pokemon facts |
 
 Operations: List.
 
@@ -262,7 +262,7 @@ Create an instance: `get_random_pokemon_fact = client.GetRandomPokemonFact`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `Array` |  |
+| `data` | `Array` | Array containing Pokemon facts |
 
 #### Example: List
 

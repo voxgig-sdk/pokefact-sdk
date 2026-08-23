@@ -8,6 +8,7 @@ main: kit: entity: get_random_pokemon_fact: {
     {
       name: "data"
       req: true
+      short: "Array containing Pokemon facts"
       type: "`$ARRAY`"
     }
   ]

@@ -6,7 +6,7 @@ The Golang SDK for the Pokefact API — an entity-oriented client using standard
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.GetRandomPokemonFact(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -260,7 +260,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"data"` |  |
+| `"data"` | Array containing Pokemon facts |
 
 Operations: List.
 
@@ -285,7 +285,7 @@ Create an instance: `getRandomPokemonFact := client.GetRandomPokemonFact(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `[]any` |  |
+| `data` | `[]any` | Array containing Pokemon facts |
 
 #### Example: List
 

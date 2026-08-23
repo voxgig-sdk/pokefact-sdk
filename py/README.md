@@ -243,7 +243,7 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
+| `data` | Array containing Pokemon facts |
 
 Operations: List.
 
@@ -268,7 +268,7 @@ Create an instance: `get_random_pokemon_fact = client.GetRandomPokemonFact()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `list` |  |
+| `data` | `list` | Array containing Pokemon facts |
 
 #### Example: List
 

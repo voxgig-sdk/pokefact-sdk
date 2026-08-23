@@ -19,6 +19,9 @@ module PokefactConfig
     {
       "main" => {
         "name" => "Pokefact",
+        "slug" => "pokefact",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -42,6 +45,7 @@ module PokefactConfig
             {
               "name" => "data",
               "req" => true,
+              "short" => "Array containing Pokemon facts",
               "type" => "`$ARRAY`",
             },
           ],

@@ -231,7 +231,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
+| `data` | Array containing Pokemon facts |
 
 Operations: List.
 
@@ -256,7 +256,7 @@ Create an instance: `local get_random_pokemon_fact = client:GetRandomPokemonFact
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `table` |  |
+| `data` | `table` | Array containing Pokemon facts |
 
 #### Example: List
 

@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "Pokefact",
+      slug = "pokefact",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -30,6 +33,7 @@ local function make_config()
           {
             ["name"] = "data",
             ["req"] = true,
+            ["short"] = "Array containing Pokemon facts",
             ["type"] = "`$ARRAY`",
           },
         },

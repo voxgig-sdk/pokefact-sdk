@@ -247,7 +247,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
+| `data` | Array containing Pokemon facts |
 
 Operations: List.
 
@@ -272,7 +272,7 @@ Create an instance: `$get_random_pokemon_fact = $client->GetRandomPokemonFact();
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `array` |  |
+| `data` | `array` | Array containing Pokemon facts |
 
 #### Example: List
 

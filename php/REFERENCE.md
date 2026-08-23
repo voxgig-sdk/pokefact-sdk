@@ -92,7 +92,7 @@ $get_random_pokemon_fact = $client->GetRandomPokemonFact();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `array` | Yes |  |
+| `data` | `array` | Yes | Array containing Pokemon facts |
 
 ### Operations
 

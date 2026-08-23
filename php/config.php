@@ -33,6 +33,9 @@ class PokefactConfig
         return [
             "main" => [
                 "name" => "Pokefact",
+                "slug" => "pokefact",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -56,6 +59,7 @@ class PokefactConfig
             [
               'name' => 'data',
               'req' => true,
+              'short' => 'Array containing Pokemon facts',
               'type' => '`$ARRAY`',
             ],
           ],

@@ -116,7 +116,7 @@ const get_random_pokemon_fact = client.GetRandomPokemonFact()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `any[]` | Yes |  |
+| `data` | `any[]` | Yes | Array containing Pokemon facts |
 
 ### Operations
 
