@@ -105,7 +105,7 @@ local results, err = client:GetRandomPokemonFact():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/pokefact` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokefact-sdk/releases) |
+| TypeScript | `@voxgig-sdk/pokefact-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokefact-sdk/releases) |
 | Python | `voxgig-sdk-pokefact` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokefact-sdk/releases) |
 | PHP | `voxgig-sdk/pokefact` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokefact-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/pokefact-sdk/go` | `go get github.com/voxgig-sdk/pokefact-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:GetRandomPokemonFact():list()
 ### TypeScript
 
 ```ts
-import { PokefactSDK } from '@voxgig-sdk/pokefact'
+import { PokefactSDK } from '@voxgig-sdk/pokefact-sdk'
 
 const client = new PokefactSDK()
 

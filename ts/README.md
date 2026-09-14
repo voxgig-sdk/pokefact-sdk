@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { PokefactSDK } from '@voxgig-sdk/pokefact'
+import { PokefactSDK } from '@voxgig-sdk/pokefact-sdk'
 
 const client = new PokefactSDK()
 ```
@@ -403,7 +403,7 @@ pokefact/
 Import the SDK from the package root:
 
 ```ts
-import { PokefactSDK } from '@voxgig-sdk/pokefact'
+import { PokefactSDK } from '@voxgig-sdk/pokefact-sdk'
 ```
 
 ### Entity state
