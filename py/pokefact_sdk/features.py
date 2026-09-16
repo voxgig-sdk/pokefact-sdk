@@ -1,12 +1,18 @@
 # Pokefact SDK feature factory
 
 from pokefact_sdk.feature.base_feature import PokefactBaseFeature
+from pokefact_sdk.feature.ratelimit_feature import PokefactRatelimitFeature
+from pokefact_sdk.feature.retry_feature import PokefactRetryFeature
 from pokefact_sdk.feature.test_feature import PokefactTestFeature
+from pokefact_sdk.feature.timeout_feature import PokefactTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: PokefactBaseFeature(),
+    "ratelimit": lambda: PokefactRatelimitFeature(),
+    "retry": lambda: PokefactRetryFeature(),
     "test": lambda: PokefactTestFeature(),
+    "timeout": lambda: PokefactTimeoutFeature(),
 }
 
 

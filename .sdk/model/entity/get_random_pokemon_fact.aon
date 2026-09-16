@@ -19,6 +19,12 @@ main: kit: entity: get_random_pokemon_fact: {
       name: "list"
       points: [
         {
+          contract: {
+            id: "GET /"
+            json: "{\"operationId\":\"getRandomPokemonFact\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"eternatus\":{\"summary\":\"Example Pokemon fact\",\"value\":{\"data\":[\"Eternamax Eternatus: Is tied with Blissey for the highest base HP stat of all Pokémon. Has the highest base Defense and Special Defense stats of all Pokémon. A level 100 Eternamax Eternatus could reach 655 in one of these stats, which would cause the stat to overflow to 0, due to a quirk in the coding for Pokémon Sword and Shield which affects no other Pokémon. Has the highest base stat total of all Pokémon, with 1125. This also makes it the only Pokémon with a four-digit base stat total. Is the only alternate form of a Legendary Pokémon that cannot be legitimately used by the player.\"]}}},\"schema\":{\"properties\":{\"data\":{\"description\":\"Array containing Pokemon facts\",\"items\":{\"description\":\"A random Pokemon fact\",\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"data\"],\"type\":\"object\"}}},\"description\":\"Successful response with a random Pokemon fact\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/"
           transform: {
