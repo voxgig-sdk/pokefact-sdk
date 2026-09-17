@@ -127,9 +127,9 @@ class Config {
 
     entity: {
       
-      get_random_pokemon_fact: {
-      },
-
+        get_random_pokemon_fact: {
+        },
+  
     }
   }
 

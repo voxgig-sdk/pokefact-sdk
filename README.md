@@ -105,12 +105,12 @@ local results, err = client:GetRandomPokemonFact():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/pokefact-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokefact-sdk/releases) |
-| Python | `voxgig-sdk-pokefact` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokefact-sdk/releases) |
-| PHP | `voxgig-sdk/pokefact` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokefact-sdk/releases) |
+| TypeScript | `@voxgig-sdk/pokefact-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokefact-sdk/tags) |
+| Python | `voxgig-sdk-pokefact` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokefact-sdk/tags) |
+| PHP | `voxgig-sdk/pokefact` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokefact-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/pokefact-sdk/go` | `go get github.com/voxgig-sdk/pokefact-sdk/go@latest` |
-| Ruby | `voxgig-sdk-pokefact` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokefact-sdk/releases) |
-| Lua | `voxgig-sdk-pokefact` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokefact-sdk/releases) |
+| Ruby | `voxgig-sdk-pokefact` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokefact-sdk/tags) |
+| Lua | `voxgig-sdk-pokefact` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokefact-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/pokefact-sdk/go-cli` | `go install github.com/voxgig-sdk/pokefact-sdk/go-cli/cmd/pokefact@latest` |
 | Go MCP server | `github.com/voxgig-sdk/pokefact-sdk/go-mcp` | `go get github.com/voxgig-sdk/pokefact-sdk/go-mcp@latest` |
 
